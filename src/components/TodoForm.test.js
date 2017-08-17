@@ -35,18 +35,4 @@ describe('TodoForm', () => {
 
         expect(component.props().currentTodo).toEqual("haha");
     })
-
-    it('has default state', () => {
-        const testState = {
-            currentTodo: 'haha'
-        };
-
-        const store = createMockStore(testState)
-
-        const component = shallowWithStore(<TodoForm />, store);
-
-        const input = component.dive().find('input').first();
-
-        expect(input.prop("value")).toEqual("haha");
-    })
 })
