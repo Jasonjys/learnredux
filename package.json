@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "json-server": "^0.12.0",
+    "enzyme": "^2.9.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
-    "redux": "^3.7.2"
+    "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.2",
+    "redux-test-utils": "^0.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
