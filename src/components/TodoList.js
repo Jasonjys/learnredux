@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const TodoItem = ({name, isCompelete}) => (
+const TodoItem = ({name, isComplete}) => (
   <li>
-    <input type="checkbox" defaultChecked={isCompelete}/>
+    <input type="checkbox" defaultChecked={isComplete}/>
     {name}
   </li>
 )

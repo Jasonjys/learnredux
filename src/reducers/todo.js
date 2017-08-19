@@ -1,8 +1,8 @@
 const initState = {
   todos: [
-    {id: 1, name: 'name1', isCompelete: true},
-    {id: 2, name: 'name2', isCompelete: true},
-    {id: 3, name: 'name3', isCompelete: false}
+    {id: 1, name: 'name1', isComplete: true},
+    {id: 2, name: 'name2', isComplete: true},
+    {id: 3, name: 'name3', isComplete: false}
   ],
   currentTodo: ''
 }
