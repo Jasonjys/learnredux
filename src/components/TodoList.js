@@ -1,10 +1,17 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchTodos} from '../reducers/todo'
+import {fetchTodos, toggleTodo, deleteTodo, getVisableTodos} from '../reducers/todo'
 
-const TodoItem = ({name, isComplete}) => (
+const TodoItem = ({id, name, isComplete, toggleTodo, deleteTodo}) => (
   <li>
-    <input type="checkbox" defaultChecked={isComplete}/>
+    <span className="delete-item">
+      <button onClick={() => deleteTodo(id)}>X</button>
+    </span>
+    <input 
+      type="checkbox"
+      checked={isComplete}
+      onChange={() => toggleTodo(id)}
+    />
     {name}
   </li>
 )
@@ -18,7 +25,12 @@ class TodoList extends Component {
       <div className="Todo-list">
         <ul>
           {this.props.todos.map(todo => (
-            <TodoItem key={todo.id} {...todo} />
+            <TodoItem
+              key={todo.id}
+              toggleTodo={this.props.toggleTodo}
+              deleteTodo={this.props.deleteTodo}
+              {...todo} 
+            />
           ))}
         </ul>
       </div>
@@ -26,6 +38,6 @@ class TodoList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({todos: state.todos})
-const mapDispatchToProps = {fetchTodos}
+const mapStateToProps = (state, ownProps) => ({todos: getVisableTodos(state.todo.todos, ownProps.filter)})
+const mapDispatchToProps = {fetchTodos, toggleTodo, deleteTodo}
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
